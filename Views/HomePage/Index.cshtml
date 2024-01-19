@@ -1,0 +1,17 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using PolisenNews.Cms.Models.Pages
+@using PolisenNews.Cms.Models.ViewModels
+@model IPageViewModel<HomePage>
+
+<div class="home-page row no-gutters">
+  
+    @if (Model.CurrentPage.MainBody != null && !Model.CurrentPage.MainBody.IsEmpty)
+    {
+        <div class="col-12">
+            @Html.PropertyFor(m => m.CurrentPage.MainBody)
+        </div>
+    }
+    <div class="col-12">
+        @Html.PropertyFor(x => x.CurrentPage.ContentArea)
+    </div>
+</div>

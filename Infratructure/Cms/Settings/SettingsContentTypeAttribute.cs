@@ -1,0 +1,8 @@
+﻿namespace PolisenNews.Cms.Infratructure.Cms.Settings
+{
+    [AttributeUsage(validOn: AttributeTargets.Class)]
+    public sealed class SettingsContentTypeAttribute : ContentTypeAttribute
+    {
+        public string SettingsName { get; set; }
+    }
+}

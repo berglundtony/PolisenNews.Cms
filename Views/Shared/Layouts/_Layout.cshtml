@@ -1,0 +1,46 @@
+﻿@using PolisenNews.Cms.Features
+@using EPiServer.Framework.Web.Mvc.Html
+@using EPiServer.Web.Mvc.Html
+@using PolisenNews.Cms.Features.Shared
+@using PolisenNews.Cms.Infratructure.Helpers
+@using PolisenNews.Cms.Models.ViewModels
+@using PolisenNews.Cms.Views.Shared.Components.ViewModels
+@model IPageViewModel<SitePageData>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @Html.CanonicalLink()
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.min.css" />
+     <link rel="stylesheet" href="~/css/theme.min.css" />
+    <link rel="stylesheet" href="~/css/darkly.scss" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <required-client-resources area="Header" />
+</head>
+
+<body>
+    @await Html.RenderEPiServerQuickNavigatorAsync()
+
+    @Html.FullRefreshPropertiesMetaData()
+
+    @{
+        await Html.RenderPartialAsync("Header", Model);
+    }
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @{
+        await Html.RenderPartialAsync("SubNavigation", Model);
+    }
+    <required-client-resources area="Footer" />
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

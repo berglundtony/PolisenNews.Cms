@@ -1,0 +1,26 @@
+﻿@using EPiServer.Web.Mvc.Html
+@model SectionMediaBlock
+
+<section class="wrap section-media-block">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-xl-3">
+                <div class="with-tic-mark">
+                    @Html.PropertyFor(x => x.Headline)
+                </div>
+                <div class="wrap__intro">
+                    @Html.PropertyFor(x => x.Body)
+                </div>
+            </div>
+            <div class="col-sm-12 col-xl-3">
+                <div class="image-full">
+                    <picture>
+                        <source srcset="@Url.ContentUrl(Model.Image)" alt="" media="(min-width:768px)" />
+                        <img srcset="@Url.ContentUrl(Model.Image)" alt="" width="795" height="530" ) />
+                    </picture>
+                    @Html.PropertyFor(x => x.Headline)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

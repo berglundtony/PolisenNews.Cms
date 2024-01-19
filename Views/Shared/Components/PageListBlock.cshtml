@@ -1,0 +1,44 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using PolisenNews.Cms.Models.Pages
+@using PolisenNews.Cms.Models.ViewModels
+@using PolisenNews.Cms.Views.Shared.Components.ViewModels
+@using PolisenNews.Cms.Infratructure.Helpers
+@model PageListModel
+
+
+<h2 epi-property="@Model.">@Model.Heading</h2>
+<div class="row">
+    <div class=""
+    <div class="col-sm-12 col-md-12 col-lg-12" style="width: 100%; display: flex; flex-direction: row;">
+        @foreach (var page in Model.Pages)
+        {
+            <div class="archive-item @string.Join(" ", page)" style="display:inline-block">
+
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <a href="@Url.PageLinkUrl(page)">
+                        @if (page is SitePageData sitePage && sitePage.PageImage != null)
+                        {
+                            <img src="@Url.ContentUrl(sitePage.PageImage)" alt="@sitePage.MetaTitle" width="300px" height="auto" />
+                        }
+                        else
+                        {
+                            <div class="placeholder"></div>
+                        }
+                    </a>
+                    <h3>@(page.Name)</h3>
+                    <a href="@Url.PageLinkUrl(page)"><h3>@(page.Name)</h3></a>
+
+                    <p class="small date">@Html.DisplayFor(x => page.StartPublish)</p>
+
+                    @if (page is SitePageData teaserPage)
+                    {
+                        <p>@(teaserPage.TeaserText ?? teaserPage.MetaDescription)</p>
+                    }
+                </div>
+            </div>
+            <div class='clear' style="clear:both"></div>
+        }
+    </div>
+</div>
+
+
