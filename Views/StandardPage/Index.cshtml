@@ -5,13 +5,13 @@
 @using PolisenNews.Cms.Models.ViewModels
 @inject IContextModeResolver contextModeResolver
 @model PageViewModel<StandardPage>
-
+<div class="content">
 <div class="row">
     <div class="col-12 standard-page__container">
-        <div class=""
+     
         <div class="standard-page__content">
             <div class="row">
-                <div class="col-12">
+                <div class="col-6">
                     @if (!ContentReference.IsNullOrEmpty(Model.CurrentPage.PageImage))
                     {
                         <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" />
@@ -22,8 +22,8 @@
             {
 
                 <div class="row">
-                    <div class="col-12">
-                        @Html.PropertyFor(m => m.CurrentPage.MainBody)
+                    <div class="col-6">
+                        <h1>@Html.PropertyFor(m => m.CurrentPage.MainBody)</h1>
                     </div>
                 </div>
             }
@@ -31,17 +31,17 @@
             {
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         @Html.PropertyFor(m => m.CurrentPage.MainBody)
                     </div>
                 </div>
             }
             <div class="row">
-                <div class="col-12">
+                <div class="col-6">
                     @Html.PropertyFor(x => x.CurrentPage.MainContentArea)
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+</div>

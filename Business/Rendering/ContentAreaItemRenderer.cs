@@ -38,7 +38,7 @@ namespace PolisenNews.Cms.Business.Rendering
 
         private static string GetTypeSpecificCssClasses(ContentAreaItem contentAreaItem)
         {
-            var content = contentAreaItem.GetContent();
+            var content = contentAreaItem.LoadContent();
             var cssClass = content == null ? string.Empty : content.GetOriginalType().Name.ToLowerInvariant();
 
             if (content is ICustomCssInContentArea customClassContent &&
