@@ -1,5 +1,5 @@
 ﻿using EPiServer.Web;
-using PolisenNews.Cms.Infratructure;
+using PolisenNews.Cms.Infrastructure;
 using System.ComponentModel.DataAnnotations;
 
 namespace PolisenNews.Cms.Models.Pages
@@ -13,8 +13,8 @@ namespace PolisenNews.Cms.Models.Pages
     public class StandardPage : SitePageData
     {
         [Display(
-            GroupName = SystemTabNames.Content,
-            Order = 50)]
+           GroupName = SystemTabNames.Content,
+           Order = 50)]
         [CultureSpecific]
         public virtual string Title { get; set; }
 

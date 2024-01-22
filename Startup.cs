@@ -1,5 +1,6 @@
 using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
+using EPiServer.Data;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
@@ -25,12 +26,26 @@ public class Startup
 
             services.Configure<SchedulerOptions>(options => options.Enabled = false);
         }
+        services.Configure<DataAccessOptions>(o =>
+        {
+            o.UpdateDatabaseSchema = true;
+        });
 
         services
             .AddCmsAspNetIdentity<ApplicationUser>()
             .AddCms()
             .AddAdminUserRegistration()
             .AddEmbeddedLocalization<Startup>();
+
+        // Required by Wangkanai.Detection
+        services.AddDetection();
+
+        services.AddSession(options =>
+        {
+            options.IdleTimeout = TimeSpan.FromSeconds(10);
+            options.Cookie.HttpOnly = true;
+            options.Cookie.IsEssential = true;
+        });
 
 
         services.AddGetaCategories();

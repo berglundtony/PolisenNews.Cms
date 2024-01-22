@@ -1,6 +1,6 @@
 ﻿using EPiServer.Filters;
 using EPiServer.Web;
-using PolisenNews.Cms.Infratructure;
+using PolisenNews.Cms.Infrastructure;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,7 +9,7 @@ namespace PolisenNews.Cms.Models.Blocks
     [ContentType(DisplayName = "Page List Block",
         GUID = "30685434-33DE-42AF-88A7-3126B936AEAD",
         Description = "A block that lists a bunch of pages",
-        GroupName = GroupNames.Content)]
+        GroupName = Globals.GroupNames.Content)]
     [ImageUrl("/icons/cms/blocks/CMS-icon-block-18.png")]
     public class PageListBlock : BlockData
     {
@@ -28,7 +28,6 @@ namespace PolisenNews.Cms.Models.Blocks
         [Display(
             GroupName = SystemTabNames.Content,
             Order = 4)]
-        [DefaultValue(5)]
         [Required]
         public virtual int Count { get; set; }
 
@@ -51,35 +50,19 @@ namespace PolisenNews.Cms.Models.Blocks
             Order = 6)]
         public virtual PageType PageTypeFilter { get; set; }
 
-
         [Display(
             GroupName = SystemTabNames.Content,
             Order = 8)]
         public virtual bool Recursive { get; set; }
 
         [Display(
-        GroupName = SystemTabNames.Content,
-        Order = 9)]
-        public virtual string Padding { get; set; }
-
-        [Display(
-        GroupName = SystemTabNames.Content,
-        Order = 10)]
-        public virtual string BootstrapCardRatioOption { get; set; }
-
-        [Display(
-        GroupName = SystemTabNames.Content,
-        Order = 11)]
-        public virtual string PreviewOption { get; set; }
-
-        [Display(
          GroupName = SystemTabNames.Content,
-         Order = 11)]
+         Order = 9)]
         public virtual string Template { get; internal set; }
 
         [Display(
         GroupName = SystemTabNames.Content,
-        Order = 12)]
+        Order = 10)]
         public bool IncludeTeaserText { get; internal set; }
 
         /// <summary>

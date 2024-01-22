@@ -1,24 +1,21 @@
 ﻿@using EPiServer.Web
 @using EPiServer.Web.Mvc.Html
-@using PolisenNews.Cms.Infratructure.Cms.Extensions
-@using PolisenNews.Cms.Models.ViewModels
+@using PolisenNews.Cms.Infrastructure.Cms.Extensions
+@using PolisenNews.Cms.Models.Pages
 @inject IContextModeResolver contextModeResolver
 @model IPageViewModel<StandardPage>
-
-@{
-    Layout = null;
-}
-
 <div class="row">
-    <div class="col-12 standard-page__container">
+    <div class="contentainer" standard-page__container">
 
         <div class="standard-page__content">
             <div class="row">
+                <div>
+                    <h1> @Html.PropertyFor(m => m.CurrentPage.Title)</h1>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-12">
-                    @if (!ContentReference.IsNullOrEmpty(Model.CurrentPage.PageImage))
-                    {
-                        <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" />
-                    }
+                     <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" class="TeaserImage" />
                 </div>
             </div>
 
@@ -26,13 +23,13 @@
             {
 
                 <div class="row">
-                    <div class="col-12">
+                    <div>
                         @Html.PropertyFor(m => m.CurrentPage.MainBody)
                     </div>
                 </div>
             }
             <div class="row">
-                <div class="col-12">
+                <div>
                     @Html.PropertyFor(x => x.CurrentPage.MainContentArea)
                 </div>
             </div>

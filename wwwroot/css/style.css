@@ -1,42 +1,165 @@
 ﻿@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
 img, video {
-  max-width: 100%; }
+    max-width: 100%;
+}
 
 .teaserblock > div {
-  height: 100%; }
+    height: 100%;
+}
 
 header {
-  padding: 1.5rem;
-  margin-bottom: 1.5rem; }
-  header .logo {
-    padding-right: 1rem; }
-    header .logo img {
-      max-height: 100px; }
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
 
 footer {
-  padding: 1.5rem;
-  margin-top: 1.5rem; }
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+header .logo {
+    padding-right: 1rem;
+}
+
+    header .logo img {
+        max-height: 120px !important;
+        height: auto;
+        width: 120px !important;
+    }
+    
 
 .content {
-  margin-bottom: 1.5rem; }
+    margin-bottom: 1.5rem;
+}
 
 .block {
-  margin-bottom: 1.5rem; }
+    margin-bottom: 1.5rem;
+}
 
 .jumbotronblock {
-  color: #fff;
-  position: relative; }
-  .jumbotronblock > div {
-    background-size: cover;
-    background-position: 50% 50%;
-    position: relative; }
-  .jumbotronblock .jumbotron-dimmer {
-    background: #000;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: .4; }
-  .jumbotronblock .jumbotron-inner {
-    position: relative; }
+    color: #fff;
+    position: relative;
+}
+
+    .jumbotronblock > div {
+        background-size: cover;
+        background-position: 50% 50%;
+        position: relative;
+    }
+
+    .jumbotronblock .jumbotron-dimmer {
+        background: #000;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: .4;
+    }
+
+    .jumbotronblock .jumbotron-inner {
+        position: relative;
+    }
+
+#readMoreNews {
+    float: right;
+    float: right;
+    margin: 0 50px 50px 0;
+}
+/*style="display:flex; flex-direction:row"*/
+@media screen and (min-width: 1024px) {
+    .teaser-cards {
+        width: 100%;
+    }
+    .teaser-item {
+        display: inline-block;
+        padding: 10px;
+        width: 30% !important;
+    }
+
+    .teaser-card a > img {
+        width: 90% !important;
+        height: auto;
+        padding-block: 10px;
+    }
+
+    .teaser-card h6 {
+        font-size: medium;
+        color: darkblue;
+        margin: 4px 0 2px 0;
+    }
+}
+
+/* For Tablet View */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .teaser-cards {
+        width: 100%;
+    }
+
+    .teaser-item {
+        display: inline-block;
+        padding: 10px;
+        width: 80% !important;
+    }
+
+    .teaser-card a > img {
+        width: 80% !important;
+        height: auto;
+        padding-block: 3px;
+    }
+
+    .teaser-card h6 {
+        font-size: medium;
+        color: darkblue;
+        margin: 2px 0 2px 0;
+    }
+}
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+    .teaser-cards {
+        width: 100%;
+    }
+    .teaser-item {
+        float: left;
+        padding: 10px;
+        width: 60% !important;
+    }
+
+    .teaser-card a > img {
+        width: 30% !important;
+        height: auto;
+        padding-block: 10px;
+    }
+
+    .teaser-card h6 {
+        font-size: small;
+        color: darkblue;
+        margin: 2px 0 2px 0;
+    }
+}
+
+/* For Mobile Landscape View */
+@media screen and (max-device-width: 640px) and (orientation: landscape) {
+       .teaser-cards {
+        width: 100%;
+    }
+    .teaser-item {
+        float: left;
+        display: block;
+        padding: 5px;
+        width: 20% !important;
+    }
+
+    .teaser-card a > img {
+        width: 80% !important;
+        height: auto;
+        padding-block: 10px;
+    }
+
+    .teaser-card h6 {
+        font-size: x-small;
+        color: darkblue;
+        margin: 2px 0 2px 0;
+    }
+}

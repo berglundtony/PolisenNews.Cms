@@ -30,7 +30,7 @@ namespace PolisenNews.Cms.Controllers
         /// <remarks>
         /// Used to create models of a specific type without the calling method having to know that type.
         /// </remarks>
-        private static IPageViewModel<SitePageData> CreateModel(SitePageData currentPage)
+        private static IPageViewModel<SitePageData>? CreateModel(SitePageData currentPage)
         {
             var type = typeof(PageViewModel<>).MakeGenericType(currentPage.GetOriginalType());
             return Activator.CreateInstance(type, currentPage) as IPageViewModel<SitePageData>;

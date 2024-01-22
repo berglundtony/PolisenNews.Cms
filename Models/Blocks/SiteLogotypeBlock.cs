@@ -1,5 +1,6 @@
 ﻿using EPiServer.Shell.ObjectEditing;
 using EPiServer.Web;
+using PolisenNews.Cms.Infrastructure;
 using System.ComponentModel.DataAnnotations;
 
 namespace PolisenNews.Cms.Models.Blocks
@@ -17,20 +18,29 @@ namespace PolisenNews.Cms.Models.Blocks
         /// Gets the site logotype URL
         /// </summary>
         /// <remarks>If not specified a default logotype will be used</remarks>
-        [DefaultDragAndDropTarget]
-        [UIHint(UIHint.Image)]
-        public virtual Url Url
-        {
-            get
-            {
-                var url = this.GetPropertyValue(b => b.Url);
+        //[DefaultDragAndDropTarget]
+        //[UIHint(UIHint.Image)]
+        //public virtual Url Url
+        //{
+        //    get
+        //    {
+        //        var url = this.GetPropertyValue(b => b.Url);
 
-                return url == null || url.IsEmpty()
-                    ? new Url("/gfx/logotype.png")
-                    : url;
-            }
-            set => this.SetPropertyValue(b => b.Url, value);
-        }
+        //        return url == null || url.IsEmpty()
+        //            ? new Url("/gfx/logotype.png")
+        //            : url;
+        //    }
+        //    set => this.SetPropertyValue(b => b.Url, value);
+        //}
+        [CultureSpecific]
+        [Display(
+         Name = "Image",
+         Description = "The image.",
+         GroupName = Globals.GroupNames.Content,
+         Order = 10)]
+        [UIHint(UIHint.MediaFile)]
+        public virtual Url Url { get; set; }
+
 
         [CultureSpecific]
         public virtual string Title { get; set; }

@@ -1,0 +1,12 @@
+@using EPiServer.Framework.Localization
+@using EPiServer.Web.Mvc.Html
+@model ButtonBlock
+
+<a class="btn btn-primary btn-sm" id="readMoreNews" title="@Model.ButtonText" href="@Url.Content(Model.ButtonLink.Uri.ToString())" epi-property="@Model.ButtonText">
+    @{
+        var buttonText = string.IsNullOrWhiteSpace(Model.ButtonText) 
+            ? LocalizationService.Current.GetString("/blocks/buttonblockcontrol/buttondefaulttext")
+            : Model.ButtonText;
+    }
+    @buttonText
+</a>

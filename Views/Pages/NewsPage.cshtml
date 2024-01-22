@@ -1,12 +1,8 @@
 ﻿@using PolisenNews.Cms.Models.Pages
 @using PolisenNews.Cms.Models.ViewModels
-@model PageViewModel<NewsPage>
+@model IPageViewModel<NewsPage>
 
-@{
-    Layout = null;
-}
-
-<div class="content">
+<div class="contentainer">
     <h1 epi-property="@Model.CurrentPage.Title"></h1>
     <p class="lead" epi-property="@Model.CurrentPage.MetaDescription">@Model.CurrentPage.MetaDescription</p>
     <div class="clearfix">

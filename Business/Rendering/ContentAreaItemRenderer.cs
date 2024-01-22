@@ -1,7 +1,7 @@
 ﻿using EPiServer.Web;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using PolisenNews.Cms.Infratructure;
+using PolisenNews.Cms.Infrastructure;
 using System.Text;
 
 namespace PolisenNews.Cms.Business.Rendering

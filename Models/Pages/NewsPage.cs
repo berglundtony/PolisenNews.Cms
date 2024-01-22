@@ -13,7 +13,7 @@ namespace PolisenNews.Cms.Models.Pages
     Description = "Presents a news section including a list of the most recent articles on the site.",
     GroupName = SystemTabNames.Content)]
     [AvailableContentTypes(IncludeOn = new[] { typeof(PageData) })]
-    [ImageUrl("/icons/cms/pages/CMS-icon-page-12")]
+    [ImageUrl("~/icons/cms/pages/CMS-icon-page-12.png")]
     public class NewsPage : StandardPage
     {
         [Display(
@@ -29,6 +29,8 @@ namespace PolisenNews.Cms.Models.Pages
             NewsList.IncludePublishDate = true;
             NewsList.PageTypeFilter = typeof(StandardPage).GetPageType();
             NewsList.SortOrder = FilterSortOrder.PublishedDescending;
+
+            VisibleInMenu = false;
         }
     }
 }

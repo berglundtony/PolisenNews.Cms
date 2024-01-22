@@ -1,7 +1,7 @@
 ﻿using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;
 using Microsoft.AspNetCore.Mvc;
-using PolisenNews.Cms.Models.Media;
+using PolisenNews.Cms.Models.Medias;
 using PolisenNews.Cms.Models.ViewModels;
 
 namespace PolisenNews.Cms.Components

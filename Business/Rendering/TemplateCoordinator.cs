@@ -1,21 +1,24 @@
 ﻿using EPiServer.ServiceLocation;
+using EPiServer.Web;
 using EPiServer.Web.Mvc;
+using PolisenNews.Cms.Controllers;
+using PolisenNews.Cms.Infrastructure;
 using PolisenNews.Cms.Models.Blocks;
 using PolisenNews.Cms.Models.Pages;
 
 namespace PolisenNews.Cms.Business.Rendering
 {
-    [ServiceConfiguration]
+    [ServiceConfiguration(typeof(IViewTemplateModelRegistrator))]
     public class TemplateCoordinator : IViewTemplateModelRegistrator
     {
         public void Register(TemplateModelCollection viewTemplateModelRegistrator)
         {
             RegisterBlock<SectionMediaBlock>(viewTemplateModelRegistrator);
-            //RegisterBlock<PageListBlock>(viewTemplateModelRegistrator);
-
-            //ArticlePartial
-            //LinkGrid
+            RegisterBlock<PageListBlock>(viewTemplateModelRegistrator);
+            RegisterBlock<ButtonBlock>(viewTemplateModelRegistrator);
         }
+
+
         private void RegisterPartial<T>(TemplateModelCollection viewTemplateModelRegistrator, string tagName) where T : SitePageData
         {
             viewTemplateModelRegistrator.Add(typeof(T), new EPiServer.DataAbstraction.TemplateModel
@@ -38,7 +41,6 @@ namespace PolisenNews.Cms.Business.Rendering
                 TemplateTypeCategory = EPiServer.Framework.Web.TemplateTypeCategories.MvcPartialView,
                 Path = $"~/Views/Shared/Components/{typeof(T).Name}.cshtml"
             });
-
         }
     }
 }

@@ -4,7 +4,7 @@ using EPiServer.Shell.ObjectEditing;
 using EPiServer.SpecializedProperties;
 using EPiServer.Web;
 using Newtonsoft.Json;
-using PolisenNews.Cms.Infratructure;
+using PolisenNews.Cms.Infrastructure;
 using System.ComponentModel.DataAnnotations;
 
 namespace PolisenNews.Cms.Features.Blocks.MenuItemBlock
@@ -12,7 +12,7 @@ namespace PolisenNews.Cms.Features.Blocks.MenuItemBlock
     [ContentType(DisplayName = "Menu Item Block",
         GUID = "a6d0242a-3946-4a80-9eec-4d9b2e5fc2d0",
         Description = "Used to create a menu item",
-        GroupName = GroupNames.Content)]
+        GroupName = Globals.GroupNames.Content)]
     [ImageUrl("/icons/cms/blocks/CMS-icon-block-23.png")]
     public class MenuItemBlock : BlockData
     {
@@ -39,7 +39,7 @@ namespace PolisenNews.Cms.Features.Blocks.MenuItemBlock
 
         [JsonIgnore]
         [EditorDescriptor(EditorDescriptorType = typeof(CollectionEditorDescriptor<GroupLinkCollection>))]
-        //[ClientEditor(ClientEditingClass = "foundation/MenuChildItems")]
+        [ClientEditor(ClientEditingClass = "foundation/MenuChildItems")]
         [Display(Name = "Child items", GroupName = SystemTabNames.Content, Order = 80)]
         public virtual IList<GroupLinkCollection> ChildItems { get; set; }
     }

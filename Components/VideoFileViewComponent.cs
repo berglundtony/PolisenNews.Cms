@@ -1,4 +1,4 @@
-using PolisenNews.Cms.Models.Media;
+using PolisenNews.Cms.Models.Medias;
 using PolisenNews.Cms.Models.ViewModels;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;

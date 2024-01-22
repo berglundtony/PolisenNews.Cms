@@ -1,7 +1,8 @@
 ﻿using EPiServer.SpecializedProperties;
 using EPiServer.Web;
 using PolisenNews.Cms.Business.Rendering;
-using PolisenNews.Cms.Infratructure;
+using PolisenNews.Cms.Infrastructure;
+using PolisenNews.Cms.Models.Blocks;
 using System.ComponentModel.DataAnnotations;
 
 namespace PolisenNews.Cms.Models.Pages
@@ -11,9 +12,10 @@ namespace PolisenNews.Cms.Models.Pages
     /// </summary>
     public abstract class SitePageData : PageData, ICustomCssInContentArea
     {
+
         #region Metadata
         [Display(
-              GroupName = TabNames.MetaData,
+              GroupName = Globals.GroupNames.MetaData,
               Order = 100)]
         [CultureSpecific]
         public virtual string MetaTitle
@@ -31,15 +33,15 @@ namespace PolisenNews.Cms.Models.Pages
         }
 
         [Display(
-             GroupName = TabNames.MetaData,
-             Order = 200)]
+             GroupName = Globals.GroupNames.MetaData,
+             Order = 110)]
         [CultureSpecific]
         [UIHint(UIHint.Textarea)]
         public virtual string MetaDescription { get; set; }
 
         [Display(
-             GroupName = TabNames.MetaData,
-             Order = 200)]
+             GroupName = Globals.GroupNames.MetaData,
+             Order = 120)]
         [CultureSpecific]
         [BackingType(typeof(PropertyStringList))]
         public virtual IList<string> MetaKeywords { get; set; }
@@ -47,36 +49,60 @@ namespace PolisenNews.Cms.Models.Pages
         #endregion
 
         #region Settings
+
         [Display(
-           GroupName = TabNames.MetaData,
-           Order = 400)]
+           GroupName = Globals.GroupNames.Settings,
+           Order = 130)]
         [CultureSpecific]
         public virtual bool DisableIndexing { get; set; }
 
         [CultureSpecific]
-        [Display(Name = "Hide site header", GroupName = TabNames.Settings, Order = 200)]
+            [Display(Name = "Hide site header", 
+            GroupName = Globals.GroupNames.Settings, Order = 140)]
         public virtual bool HideSiteHeader { get; set; }
 
         [CultureSpecific]
-        [Display(Name = "Hide site footer", GroupName = TabNames.Settings, Order = 300)]
+            [Display(Name = "Hide site footer", 
+            GroupName = Globals.GroupNames.Settings, Order = 150)]
         public virtual bool HideSiteFooter { get; set; }
+
+        [Display(
+            Name = "SiteLogotype",
+            GroupName = Globals.GroupNames.Settings,
+            Order = 160)]
+        public virtual SiteLogotypeBlock SiteLogotype { get; set; }
 
         #endregion
         #region Teaser
+        [Display(
+            GroupName = Globals.GroupNames.Settings,
+            Order = 170)]
+        [CultureSpecific]
+        public virtual bool DisplayImage { get; set; }
 
         [CultureSpecific]
         [UIHint(UIHint.Image)]
-        [Display(Name = "Image", GroupName = TabNames.Teaser, Order = 100)]
+            [Display(Name = "Image", 
+            GroupName = TabNames.Teaser, 
+            Order = 180)]
         public virtual ContentReference PageImage { get; set; }
 
         [CultureSpecific]
         [UIHint(UIHint.Video)]
-        [Display(Name = "Video", GroupName = TabNames.Teaser, Order = 200)]
+            [Display(Name = "Video", 
+            GroupName = TabNames.Teaser, Order = 190)]
         public virtual ContentReference TeaserVideo { get; set; }
 
         [CultureSpecific]
+        [Display(Name = "Teaser Header",
+          GroupName = TabNames.Teaser,
+          Order = 200)]
+        public virtual string TeaserHeader { get; set; }
+
+        [CultureSpecific]
         [UIHint(UIHint.Textarea)]
-        [Display(Name = "Text", GroupName = TabNames.Teaser, Order = 300)]
+            [Display(Name = "Text", 
+            GroupName = TabNames.Teaser, Order = 210)]
         public virtual string TeaserText
         {
             get
@@ -92,15 +118,10 @@ namespace PolisenNews.Cms.Models.Pages
         }
 
         [CultureSpecific]
-        [Display(Name = "Button label", GroupName = TabNames.Teaser, Order = 600)]
+            [Display(Name = "Button label", 
+            GroupName = TabNames.Teaser, 
+            Order = 220)]
         public virtual string TeaserButtonText { get; set; }
-
-
-        public override void SetDefaultValues(ContentType contentType)
-        {
-            TeaserButtonText = "Read more";
-            base.SetDefaultValues(contentType);
-        }
 
         #endregion
 

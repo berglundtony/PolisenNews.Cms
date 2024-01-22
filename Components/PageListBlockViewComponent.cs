@@ -22,14 +22,13 @@ namespace PolisenNews.Cms.Components
         protected override IViewComponentResult InvokeComponent(PageListBlock currentContent)
         {
             var pages = FindPages(currentContent);
-
             pages = Sort(pages, currentContent.SortOrder);
 
             if (currentContent.Count > 0)
             {
                 pages = pages.Take(currentContent.Count);
             }
-
+    
             var model = new PageListModel(currentContent)
             {
                 Pages = pages.Cast<PageData>()
@@ -41,12 +40,37 @@ namespace PolisenNews.Cms.Components
             return View("~/Views/Shared/Components/PageListBlock.cshtml", model);
         }
 
+
         private IEnumerable<PageData> FindPages(PageListBlock currentBlock)
         {
             IEnumerable<PageData> pages;
             var listRoot = currentBlock.Root;
 
-            pages = _contentLocator.GetAll<PageData>(listRoot);
+
+            if (currentBlock.Recursive)
+            {
+                if (currentBlock.PageTypeFilter != null)
+                {
+                    pages = _contentLocator.FindPagesByPageType(listRoot, true, currentBlock.PageTypeFilter.ID);
+                }
+                else
+                {
+                    pages = _contentLocator.GetAll<PageData>(listRoot);
+                }
+            }
+            else
+            {
+                if (currentBlock.PageTypeFilter != null)
+                {
+                    pages = _contentLoader
+                    .GetChildren<PageData>(listRoot)
+                    .Where(p => p.ContentTypeID == currentBlock.PageTypeFilter.ID);
+                }
+                else
+                {
+                    pages = _contentLoader.GetChildren<PageData>(listRoot);
+                }
+            }
 
             return pages;
         }

@@ -2,14 +2,15 @@
 @using PolisenNews.Cms.Models.ViewModels
 @model IPageViewModel<NewsPage>
 
-<div class="content">
-    <h1 epi-property="@Model.CurrentPage.Title"></h1>
+<div class="container">
+    <h1 epi-property="@Model.CurrentPage.PageTypeName">@Model.CurrentPage.PageName</h1>
     <p class="lead" epi-property="@Model.CurrentPage.MetaDescription">@Model.CurrentPage.MetaDescription</p>
     <div class="clearfix">
-        <div epi-property="@Model.CurrentPage.MainBody">@Model.CurrentPage.MainBody</div>
+        <div epi-property="@Model.CurrentPage.MainBody" />
     </div>
-    <div epi-property="@Model.CurrentPage.NewsList">@Model.CurrentPage.NewsList</div>
-    <div epi-property="@Model.CurrentPage.MainContentArea" class="row" />
+    <div epi-property="@Model.CurrentPage.NewsList" />
 </div>
+
+<div epi-property="@Model.CurrentPage.MainContentArea" class="row" />
 
 

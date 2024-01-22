@@ -4,7 +4,12 @@
 @model IPageViewModel<HomePage>
 
 <div class="home-page row no-gutters">
-  
+    @if (Model.CurrentPage.Title != null)
+    {
+        <div class="col-12">
+            <H1>@Html.PropertyFor(m => m.CurrentPage.Title)</H1>
+        </div>
+    }
     @if (Model.CurrentPage.MainBody != null && !Model.CurrentPage.MainBody.IsEmpty)
     {
         <div class="col-12">

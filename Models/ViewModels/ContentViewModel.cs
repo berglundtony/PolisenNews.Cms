@@ -3,7 +3,7 @@ using EPiServer.ServiceLocation;
 using EPiServer.Web;
 using Microsoft.AspNetCore.Html;
 using PolisenNews.Cms.Features.Shared;
-using PolisenNews.Cms.Infratructure;
+using PolisenNews.Cms.Infrastructure;
 using PolisenNews.Cms.Models.Pages;
 
 namespace PolisenNews.Cms.ViewModels

@@ -2,7 +2,7 @@
 @using EPiServer.Framework.Web.Mvc.Html
 @using EPiServer.Web.Mvc.Html
 @using PolisenNews.Cms.Features.Shared
-@using PolisenNews.Cms.Infratructure.Helpers
+@using PolisenNews.Cms.Infrastructure.Helpers
 @using PolisenNews.Cms.Models.ViewModels
 @using PolisenNews.Cms.Views.Shared.Components.ViewModels
 @model IPageViewModel<SitePageData>
@@ -17,11 +17,22 @@
 
     @Html.CanonicalLink()
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/style.min.css" />
-     <link rel="stylesheet" href="~/css/theme.min.css" />
-    <link rel="stylesheet" href="~/css/darkly.scss" />
+    <link rel="stylesheet" href="~/css/style.css" />
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <script src="~/js/vendors/jquery-3.4.0.min.js"></script>
     <required-client-resources area="Header" />
+    <!-- Optimizely JavaScript snippet -->
+    <script src="https://cdn.optimizely.com/js/polisenswebbsida.js"></script>
+ 
+    <script>
+        // Activate Optimizely experiment
+        window.optimizely = window.optimizely || [];
+        window.optimizely.push({
+            type: "activate",
+            experimentId: "polisenswebbsida",
+        });
+    </script>
+
 </head>
 
 <body>
@@ -40,7 +51,7 @@
     @{
         await Html.RenderPartialAsync("SubNavigation", Model);
     }
-    <required-client-resources area="Footer" />
+ 
     <script src="~/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
