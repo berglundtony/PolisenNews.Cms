@@ -2,8 +2,8 @@
 {
     internal class ImageViewModel
     {
-        public string Url { get; set; }
-        public object Name { get; set; }
-        public object Copyright { get; set; }
+        public Url Url { get; set; }
+        public string Name { get; set; }
+        public string Copyright { get; set; }
     }
 }

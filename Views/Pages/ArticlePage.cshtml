@@ -1,43 +1,46 @@
 ﻿@using EPiServer.Web
 @using EPiServer.Web.Mvc.Html
-@using PolisenNews.Cms.Infrastructure.Cms.Extensions
 @using PolisenNews.Cms.Models.Pages
+@using PolisenNews.Cms.Models.ViewModels
 @inject IContextModeResolver contextModeResolver
-@model IPageViewModel<StandardPage>
+@model IPageViewModel<ArticlePage>
 
 @{
-    // Layout = "~/Views/Shared/Layouts/_Layout.cshtml"; 
+    // Layout = "~/Views/Shared/Layouts/_Layout.cshtml";
 }
 <div class="row">
-    <div class="contentainer" standard-page__container">
+    <div class="standard-page__container">
 
         <div class="standard-page__content">
             <div class="row">
-                <div class="col-sm-12 col-lg-8 .p-2">
+                <div class="col-lg-6 p-2">
                     <h1> @Html.PropertyFor(m => m.CurrentPage.Title)</h1>
                 </div>
+                <div class="col-lg-6"></div>
             </div>
             <div class="row">
-                <div class="col-12">
-                     <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" class="TeaserImage" />
+                <div class="col-lg-6 p-2">
+                    <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" class="TeaserImage" />
                 </div>
+                <div class="col-lg-6"></div>
             </div>
 
             @if ((Model.CurrentPage.MainBody != null && !Model.CurrentPage.MainBody.IsEmpty) || contextModeResolver.CurrentMode == ContextMode.Edit)
             {
 
                 <div class="row">
-                    <div class="col-sm-12 col-8 .p-3">
+                    <div class="col-sm-12 col-lg-6">
                         @Html.PropertyFor(m => m.CurrentPage.MainBody)
                     </div>
+                    <div class="col-lg-6"></div>
                 </div>
             }
             <div class="row">
-                <div class="col-sm-12 col-8 .p-3">
+                <div class="col-sm-12 col-lg-6 .p-2">
                     @Html.PropertyFor(x => x.CurrentPage.MainContentArea)
                 </div>
+                <div class="col-lg-6"></div>
             </div>
         </div>
     </div>
 </div>
-

@@ -1,4 +1,4 @@
-﻿namespace PolisenAP.Models.ViewModels
+﻿namespace PolisenNews.Cms.Models.ViewModels
 {
     public class ImageMediaDataViewModel
     {

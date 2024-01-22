@@ -45,6 +45,7 @@
   
   <ItemGroup>
     <None Include="PolisenNews.Cms.sln" />
+    <None Include="Views\ArticlePage\Index.cshtml" />
     <None Include="Views\NewsPage\Index.cshtml" />
     <None Include="Views\Shared\Components\ImageFile\Default.cshtml" />
     <None Include="Views\Shared\Components\ImageMedia\Default.cshtml" />
