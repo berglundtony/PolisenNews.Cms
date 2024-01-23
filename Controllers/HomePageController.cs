@@ -8,12 +8,6 @@ namespace PolisenNews.Cms.Cms.Cms.Controllers
 {
     public class HomePageController : ContentController<HomePage>
     {
-        //private readonly IContentLoader contentLoader;
-
-        //public HomePageController(IContentLoader contentLoader)
-        //{
-        //    this.contentLoader = contentLoader;
-        //}
 
         public IActionResult Index(HomePage currentContent)
         {
