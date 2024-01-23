@@ -5,6 +5,7 @@ using PolisenNews.Cms.Business;
 using PolisenNews.Cms.Models.Blocks;
 using PolisenNews.Cms.Models.Pages;
 using PolisenNews.Cms.Views.Shared.Components.ViewModels;
+using System.Linq;
 
 namespace PolisenNews.Cms.Components
 {
@@ -78,8 +79,9 @@ namespace PolisenNews.Cms.Components
         private static IEnumerable<PageData> Sort(IEnumerable<PageData> pages, FilterSortOrder sortOrder)
         {
             var sortFilter = new FilterSort(sortOrder);
-            sortFilter.Sort(new PageDataCollection(pages.ToList()));
-            return pages;
+            var filterCollection = new PageDataCollection(pages.ToList());
+            sortFilter.Sort(filterCollection);
+            return filterCollection;
         }
     }
 }

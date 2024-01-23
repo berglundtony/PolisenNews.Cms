@@ -38,6 +38,8 @@
     <Compile Remove="Business\Initialization\CustomizedRenderingInitialization.cs" />
     <Compile Remove="Business\Initialization\ErrorHandlingContentRenderer.cs" />
     <Compile Remove="Business\Initialization\InitializationEngine.cs" />
+    <Compile Remove="Business\PageContextActionFilter.cs" />
+    <Compile Remove="Business\PageViewContextFactory.cs" />
     <Compile Remove="Business\Rendering\ContentAreaItemRenderer.cs" />
     <Compile Remove="Controllers\StandardPageController.cs" />
     <Compile Remove="Views\PageBase.cs" />
