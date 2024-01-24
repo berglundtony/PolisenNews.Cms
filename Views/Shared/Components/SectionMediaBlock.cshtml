@@ -4,21 +4,23 @@
 <section class="wrap section-media-block">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-xl-3">
-                <div class="with-tic-mark">
-                    @Html.PropertyFor(x => x.Headline)
-                </div>
-                <div class="wrap__intro">
-                    @Html.PropertyFor(x => x.Body)
+            <div class="col-12 col-xl-3">
+                <div>
+                    <h1>@Html.PropertyFor(x => x.Headline) </h1>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm-12 col-xl-3">
                 <div class="image-full">
-                    <picture>
-                        <source srcset="@Url.ContentUrl(Model.Image)" alt="" media="(min-width:768px)" />
-                        <img srcset="@Url.ContentUrl(Model.Image)" alt="" width="795" height="530" ) />
-                    </picture>
-                    @Html.PropertyFor(x => x.Headline)
+                    <img src="@Url.ContentUrl(Model.Image)" alt="" media="(min-width:768px)" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-xl-3">
+                    <div class="wrap__intro">
+                        @Html.PropertyFor(x => x.Body)
+                    </div>
                 </div>
             </div>
         </div>

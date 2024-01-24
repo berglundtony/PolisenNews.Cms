@@ -3,14 +3,15 @@
 @model IPageViewModel<NewsPage>
 
 <div class="container">
-    <h1 epi-property="@Model.CurrentPage.PageTypeName">@Model.CurrentPage.PageName</h1>
+    <h1 epi-property="@Model.CurrentPage.PageTypeName"></h1>
     <p class="lead" epi-property="@Model.CurrentPage.MetaDescription">@Model.CurrentPage.MetaDescription</p>
     <div class="clearfix">
         <div epi-property="@Model.CurrentPage.MainBody" />
     </div>
     <div epi-property="@Model.CurrentPage.NewsList" />
+    <div epi-property="@Model.CurrentPage.MainContentArea" class="row" />
 </div>
 
-<div epi-property="@Model.CurrentPage.MainContentArea" class="row" />
+
 
 

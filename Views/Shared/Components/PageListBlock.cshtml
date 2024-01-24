@@ -12,31 +12,29 @@
 
         @foreach (var page in Model.Pages)
         {
-            <div class="teaser-item @string.Join(" ", page)">
+                <div class="teaser-item @string.Join(" ", page)">
 
-                <div class="teaser-card">
-                    <a href="@Url.PageLinkUrl(page)">
-                        @if (page is SitePageData sitePage && sitePage.PageImage != null)
+                    <div class="teaser-card">
+                        <a href="@Url.PageLinkUrl(page)">
+                            @if (page is SitePageData sitePage && sitePage.PageImage != null)
+                            {
+                                <img src="@Url.ContentUrl(sitePage.PageImage)" alt="@sitePage.MetaTitle" />
+                            }
+                        </a>
+                        <a href="@Url.PageLinkUrl(page)"><h6>@(page.Name)</h6></a>
+
+                        <p class="small date">@Html.DisplayFor(x => page.StartPublish)</p>
+
+                        @if (page is SitePageData teaserPage)
                         {
-                            <img src="@Url.ContentUrl(sitePage.PageImage)" alt="@sitePage.MetaTitle" />
+                            <p>@(teaserPage.TeaserText ?? teaserPage.MetaDescription)</p>
                         }
-                        else
-                        {
-                            <div class="placeholder"></div>
-                        }
-                    </a>
-                    <a href="@Url.PageLinkUrl(page)"><h6>@(page.Name)</h6></a>
+                    </div>
 
-                    <p class="small date">@Html.DisplayFor(x => page.StartPublish)</p>
-
-                    @if (page is SitePageData teaserPage)
-                    {
-                        <p>@(teaserPage.TeaserText ?? teaserPage.MetaDescription)</p>
-                    }
+                    <div class='clear' style="clear:both"></div>
                 </div>
-                <div class='clear' style="clear:both"></div>
-            </div>
         }
     </div>
 </div>
+
 
